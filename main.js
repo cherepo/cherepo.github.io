@@ -252,7 +252,7 @@ var EncryptionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row bookmarks\">\n    <div class=\"col-lg-12\">\n        <div class=\"search-result\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" #bookmarkName>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" #bookmarkUrl>\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist(bookmarkName.value, bookmarkUrl.value)\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item\"\n                    *ngFor=\"let bookmark of bookmarks\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url)\">Delete</button>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row bookmarks\">\n    <div class=\"col-lg-12\">\n        <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n            <div class=\"input-group-append\">\n                <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Add</button>\n            </div>\n        </div>\n        <div class=\"search input-group mb-3\" *ngIf=\"bookmarks\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkName\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkUrl\">\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist()\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item\"\n                    *ngFor=\"let bookmark of bookmarks\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url)\">Delete</button>\n                </li>\n            </ul>\n        </div>\n        <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n            <span>Error: {{httpError}}</span>\n            <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -263,7 +263,7 @@ module.exports = "<div class=\"row bookmarks\">\n    <div class=\"col-lg-12\">\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".bookmarks ul {\n  list-style-type: none; }\n\n.bookmarks .delete-btn {\n  float: right; }\n"
+module.exports = ".bookmarks ul {\n  list-style-type: none; }\n\n.bookmarks .delete-btn {\n  float: right; }\n\n.bookmarks .reset-btn {\n  float: right; }\n\n.bookmarks .alert-danger {\n  height: 64px; }\n"
 
 /***/ }),
 
@@ -293,42 +293,77 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(resourceService) {
         this.resourceService = resourceService;
-        this.bookmarks = [];
+        this.passcode = void 0;
+        this.httpError = void 0;
+        this.bookmarkName = '';
+        this.bookmarkUrl = '';
+        this.bookmarks = void 0;
+        this.original = void 0;
         this.cheGist = 'https://api.github.com/gists/973de2c3eb3f55518e97a1d3d18eb79e';
         this.gistFile = 'bookmarks.json';
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.loadGist();
     };
     HomeComponent.prototype.loadGist = function () {
         var _this = this;
-        this.resourceService.getGist(this.cheGist).subscribe(function (result) {
+        this.httpError = void 0;
+        this.resourceService.getGist(this.cheGist, this.passcode).subscribe(function (result) {
             _this.bookmarks = JSON.parse(result[_this.gistFile]['content']).data;
+            _this.original = _this.deepClone(_this.bookmarks);
+        }, function (error) {
+            _this.httpError = error.statusText;
         });
     };
-    HomeComponent.prototype.addToGist = function (name, url) {
+    HomeComponent.prototype.addToGist = function () {
+        var _this = this;
+        this.httpError = void 0;
         var newEntry = {
-            name: name,
-            url: url
+            name: this.bookmarkName,
+            url: this.bookmarkUrl
         };
         this.bookmarks.push(newEntry);
-        this.resourceService.patchGist(this.cheGist, this.bookmarks).subscribe(function (val) {
+        this.resourceService.patchGist(this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
             console.log("PATCH call successful value returned in body", val);
-        }, function (response) {
-            console.log("PATCH call in error", response);
+        }, function (error) {
+            _this.httpError = error.statusText;
+        }, function () {
+            console.log("The PATCH observable is now completed.");
+        });
+        this.bookmarkName = '';
+        this.bookmarkUrl = '';
+    };
+    HomeComponent.prototype.deleteFromGist = function (url) {
+        var _this = this;
+        this.httpError = void 0;
+        this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.url !== url; });
+        this.resourceService.patchGist(this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
+            console.log("PATCH call successful value returned in body", val);
+        }, function (error) {
+            _this.httpError = error.statusText;
         }, function () {
             console.log("The PATCH observable is now completed.");
         });
     };
-    HomeComponent.prototype.deleteFromGist = function (url) {
-        this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.url !== url; });
-        this.resourceService.patchGist(this.cheGist, this.bookmarks).subscribe(function (val) {
-            console.log("PATCH call successful value returned in body", val);
-        }, function (response) {
-            console.log("PATCH call in error", response);
-        }, function () {
-            console.log("The PATCH observable is now completed.");
-        });
+    HomeComponent.prototype.setKeypass = function (keypass) {
+        this.passcode = keypass;
+        this.loadGist();
+    };
+    HomeComponent.prototype.clearPasscode = function () {
+        this.passcode = void 0;
+        this.httpError = void 0;
+    };
+    HomeComponent.prototype.search = function (event) {
+        // event.target.value
+        if (event.target.value) {
+            this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.name.toLowerCase().includes(event.target.value.toLowerCase()); });
+            event.target.value = '';
+        }
+        else {
+            this.bookmarks = this.deepClone(this.original);
+        }
+    };
+    HomeComponent.prototype.deepClone = function (obj) {
+        return JSON.parse(JSON.stringify(obj));
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -518,6 +553,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! crypto-js */ "./node_modules/crypto-js/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -530,6 +567,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ResourceService = /** @class */ (function () {
     function ResourceService(httpClient) {
         this.httpClient = httpClient;
@@ -537,11 +575,11 @@ var ResourceService = /** @class */ (function () {
     ResourceService.prototype.getJSON = function (url) {
         return this.httpClient.get(url);
     };
-    ResourceService.prototype.getGist = function (url) {
-        return this.httpClient.get(url, this.getHeaders())
+    ResourceService.prototype.getGist = function (url, passcode) {
+        return this.httpClient.get(url, this.getHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (resp) { return resp['files']; }));
     };
-    ResourceService.prototype.patchGist = function (url, content) {
+    ResourceService.prototype.patchGist = function (url, content, passcode) {
         var structuredContent = {
             date: new Date(),
             data: content
@@ -555,15 +593,20 @@ var ResourceService = /** @class */ (function () {
                 }
             }
         };
-        return this.httpClient.patch(url, payload, this.getHeaders());
+        return this.httpClient.patch(url, payload, this.getHeaders(passcode));
     };
-    ResourceService.prototype.getHeaders = function () {
+    ResourceService.prototype.getHeaders = function (passcode) {
+        var encoded = 'U2FsdGVkX19NvA7TMWNIYZ8JmfmsE2ZHOp3NbfBY68AH95uhDU4g5dRqrelCRrIUMVp3PsjKVLeKOZribMWOLQ==';
         return {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
                 'Content-Type': 'application/json',
-                'Authorization': 'token 997a8ed674a0826794c73bb22cadd100bec4e413'
+                'Authorization': "token " + this.decryptToken(encoded, passcode)
             })
         };
+    };
+    ResourceService.prototype.decryptToken = function (encoded, passcode) {
+        var decrypted = crypto_js__WEBPACK_IMPORTED_MODULE_3__["AES"].decrypt(encoded, passcode);
+        return decrypted.toString(crypto_js__WEBPACK_IMPORTED_MODULE_3__["enc"].Utf8);
     };
     ResourceService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
