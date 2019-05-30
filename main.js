@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "nav {\n  z-index: 999; }\n\n.app-content {\n  padding: 20pt;\n  min-width: 600px;\n  max-width: 1024px; }\n\n.app-content .app-header {\n    font-weight: 300;\n    padding: 15pt 0; }\n\n.app-content .center-content {\n    width: 80%;\n    padding-top: 10pt;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-right: -50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%); }\n"
+module.exports = "nav {\n  z-index: 999; }\n\n.app-content {\n  padding: 20pt;\n  min-width: 600px;\n  max-width: 1024px; }\n\n.app-content .app-header {\n    font-weight: 300;\n    padding: 15pt 0; }\n\n.app-content .center-content {\n    width: 80%;\n    padding-top: 50pt;\n    padding-bottom: 20pt;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-right: -50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    max-height: -webkit-fill-available; }\n"
 
 /***/ }),
 
@@ -252,7 +252,7 @@ var EncryptionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row bookmarks\">\n    <div class=\"col-lg-12\">\n        <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n            <div class=\"input-group-append\">\n                <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Add</button>\n            </div>\n        </div>\n        <div class=\"search input-group mb-3\" *ngIf=\"bookmarks\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkName\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkUrl\">\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist()\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item\"\n                    *ngFor=\"let bookmark of bookmarks\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url)\">Delete</button>\n                </li>\n            </ul>\n        </div>\n        <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n            <span>Error: {{httpError}}</span>\n            <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row alert\">\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n        <span>Error: {{httpError}}</span>\n        <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n    </div>\n</div>\n<div class=\"row home\">\n    <div class=\"col-md-6\">\n        <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n            <div class=\"input-group-append\">\n                <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Add</button>\n            </div>\n        </div>\n        <div class=\"search input-group mb-3\" *ngIf=\"bookmarks\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkName\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkUrl\">\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist()\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item\"\n                    *ngFor=\"let bookmark of bookmarks\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url)\">Delete</button>\n                </li>\n            </ul>\n        </div>\n    \n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"search input-group mb-3\" *ngIf=\"passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Add todos\" (keyup.enter)=\"addTodo($event)\" [(ngModel)]='todoString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\"\n                    *ngFor=\"let todo of todos\">\n                    {{ todo.content }}\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteTodoFromGist(todo.content)\">Done</button>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -263,7 +263,7 @@ module.exports = "<div class=\"row bookmarks\">\n    <div class=\"col-lg-12\">\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".bookmarks ul {\n  list-style-type: none; }\n\n.bookmarks .delete-btn {\n  float: right; }\n\n.bookmarks .reset-btn {\n  float: right; }\n\n.bookmarks .alert-danger {\n  height: 64px; }\n"
+module.exports = ".alert {\n  width: -webkit-fill-available; }\n  .alert .reset-btn {\n    float: right; }\n  .home ul {\n  list-style-type: none; }\n  .home .delete-btn {\n  float: right; }\n  .home .alert-danger {\n  height: 64px; }\n"
 
 /***/ }),
 
@@ -298,9 +298,11 @@ var HomeComponent = /** @class */ (function () {
         this.bookmarkName = '';
         this.bookmarkUrl = '';
         this.bookmarks = void 0;
+        this.todos = void 0;
         this.original = void 0;
         this.cheGist = 'https://api.github.com/gists/973de2c3eb3f55518e97a1d3d18eb79e';
         this.gistFile = 'bookmarks.json';
+        this.gistTodo = 'todos.json';
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
@@ -310,6 +312,7 @@ var HomeComponent = /** @class */ (function () {
         this.resourceService.getGist(this.cheGist, this.passcode).subscribe(function (result) {
             _this.bookmarks = JSON.parse(result[_this.gistFile]['content']).data;
             _this.original = _this.deepClone(_this.bookmarks);
+            _this.todos = JSON.parse(result[_this.gistTodo]['content']).data;
         }, function (error) {
             _this.httpError = error.statusText;
         });
@@ -322,7 +325,7 @@ var HomeComponent = /** @class */ (function () {
             url: this.bookmarkUrl
         };
         this.bookmarks.push(newEntry);
-        this.resourceService.patchGist(this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
+        this.resourceService.patchGist(this.gistFile, this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
             console.log("PATCH call successful value returned in body", val);
         }, function (error) {
             _this.httpError = error.statusText;
@@ -332,11 +335,41 @@ var HomeComponent = /** @class */ (function () {
         this.bookmarkName = '';
         this.bookmarkUrl = '';
     };
+    HomeComponent.prototype.addTodo = function (event) {
+        var _this = this;
+        if (event.target.value) {
+            this.httpError = void 0;
+            var newEntry = {
+                content: event.target.value
+            };
+            this.todos.push(newEntry);
+            this.resourceService.patchGist(this.gistTodo, this.cheGist, this.todos, this.passcode).subscribe(function (val) {
+                console.log("PATCH call successful value returned in body", val);
+            }, function (error) {
+                _this.httpError = error.statusText;
+            }, function () {
+                console.log("The PATCH observable is now completed.");
+            });
+            event.target.value = '';
+        }
+    };
     HomeComponent.prototype.deleteFromGist = function (url) {
         var _this = this;
         this.httpError = void 0;
         this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.url !== url; });
-        this.resourceService.patchGist(this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
+        this.resourceService.patchGist(this.gistFile, this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
+            console.log("PATCH call successful value returned in body", val);
+        }, function (error) {
+            _this.httpError = error.statusText;
+        }, function () {
+            console.log("The PATCH observable is now completed.");
+        });
+    };
+    HomeComponent.prototype.deleteTodoFromGist = function (content) {
+        var _this = this;
+        this.httpError = void 0;
+        this.todos = this.todos.filter(function (todo) { return todo.content !== content; });
+        this.resourceService.patchGist(this.gistTodo, this.cheGist, this.todos, this.passcode).subscribe(function (val) {
             console.log("PATCH call successful value returned in body", val);
         }, function (error) {
             _this.httpError = error.statusText;
@@ -579,7 +612,7 @@ var ResourceService = /** @class */ (function () {
         return this.httpClient.get(url, this.getHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (resp) { return resp['files']; }));
     };
-    ResourceService.prototype.patchGist = function (url, content, passcode) {
+    ResourceService.prototype.patchGist = function (patchFile, url, content, passcode) {
         var structuredContent = {
             date: new Date(),
             data: content
@@ -587,8 +620,8 @@ var ResourceService = /** @class */ (function () {
         var payload = {
             description: "Bookmarks",
             files: {
-                "che-bookmarks.json": {
-                    "filename": "bookmarks.json",
+                patchFile: {
+                    "filename": patchFile,
                     "content": JSON.stringify(structuredContent)
                 }
             }
