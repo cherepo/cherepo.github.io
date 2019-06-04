@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">CHE.APPS</a>\n  <button class=\"navbar-toggler\" type=\"button\" (click)=\"toggleNavbar()\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarNav\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/encryption\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Encryption</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/media-player\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Media Player</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/json-fetcher\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Json Fetcher</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n<div class=\"app-content\">\n  <div class=\"center-content\">\n      <router-outlet></router-outlet>\n  </div>\n</div>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">CHE.APPS</a>\n  <button class=\"navbar-toggler\" type=\"button\" (click)=\"toggleNavbar()\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" [ngClass]=\"{ 'show': navbarOpen }\" id=\"navbarNav\">\n    <ul class=\"navbar-nav\">\n      <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/notes\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Notes</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/encryption\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Encryption</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/media-player\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Media Player</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"/json-fetcher\" routerLinkActive=\"active\" (click)=\"toggleNavbar()\">Json Fetcher</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n<div class=\"app-content\">\n  <div class=\"center-content\">\n      <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "nav {\n  z-index: 999; }\n\n.app-content {\n  padding: 20pt;\n  min-width: 600px;\n  max-width: 1024px; }\n\n.app-content .app-header {\n    font-weight: 300;\n    padding: 15pt 0; }\n\n.app-content .center-content {\n    width: 80%;\n    padding-top: 50pt;\n    padding-bottom: 20pt;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-right: -50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    max-height: -webkit-fill-available; }\n"
+module.exports = "nav {\n  z-index: 999; }\n\n.app-content {\n  padding: 20pt;\n  max-width: 1024px; }\n\n.app-content .app-header {\n    font-weight: 300;\n    padding: 15pt 0; }\n\n.app-content .center-content {\n    width: 80%;\n    padding-top: 20pt;\n    padding-bottom: 20pt;\n    margin: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    margin-right: -50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    max-height: -webkit-fill-available; }\n\n@media (max-width: 767px) {\n      .app-content .center-content {\n        padding-top: 20pt; } }\n"
 
 /***/ }),
 
@@ -105,6 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_encryption_encryption_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/encryption/encryption.component */ "./src/app/components/encryption/encryption.component.ts");
 /* harmony import */ var _components_jsonfetch_jsonfetch_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/jsonfetch/jsonfetch.component */ "./src/app/components/jsonfetch/jsonfetch.component.ts");
 /* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_notes_notes_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/notes/notes.component */ "./src/app/components/notes/notes.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -121,10 +122,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
     { path: 'media-player', component: _components_mediaplayer_mediaplayer_component__WEBPACK_IMPORTED_MODULE_6__["MediaplayerComponent"] },
     { path: 'json-fetcher', component: _components_jsonfetch_jsonfetch_component__WEBPACK_IMPORTED_MODULE_8__["JsonfetchComponent"] },
     { path: 'encryption', component: _components_encryption_encryption_component__WEBPACK_IMPORTED_MODULE_7__["EncryptionComponent"] },
+    { path: 'notes', component: _components_notes_notes_component__WEBPACK_IMPORTED_MODULE_10__["NotesComponent"] },
     { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"] }
 ];
 var AppModule = /** @class */ (function () {
@@ -137,7 +140,8 @@ var AppModule = /** @class */ (function () {
                 _components_mediaplayer_mediaplayer_component__WEBPACK_IMPORTED_MODULE_6__["MediaplayerComponent"],
                 _components_encryption_encryption_component__WEBPACK_IMPORTED_MODULE_7__["EncryptionComponent"],
                 _components_jsonfetch_jsonfetch_component__WEBPACK_IMPORTED_MODULE_8__["JsonfetchComponent"],
-                _components_home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"]
+                _components_home_home_component__WEBPACK_IMPORTED_MODULE_9__["HomeComponent"],
+                _components_notes_notes_component__WEBPACK_IMPORTED_MODULE_10__["NotesComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -252,7 +256,7 @@ var EncryptionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row alert\">\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n        <span>Error: {{httpError}}</span>\n        <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n    </div>\n</div>\n<div class=\"row home\">\n    <div class=\"col-md-6\">\n        <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n            <input type=\"password\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n            <div class=\"input-group-append\">\n                <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Add</button>\n            </div>\n        </div>\n        <div class=\"search input-group mb-3\" *ngIf=\"bookmarks\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkName\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkUrl\">\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist()\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item\"\n                    *ngFor=\"let bookmark of bookmarks\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url)\">Delete</button>\n                </li>\n            </ul>\n        </div>\n    \n    </div>\n    <div class=\"col-md-6\">\n        <div class=\"search input-group mb-3\" *ngIf=\"passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Add todos\" (keyup.enter)=\"addTodo($event)\" [(ngModel)]='todoString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\"\n                    *ngFor=\"let todo of todos\">\n                    {{ todo.content }}\n                    <button type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteTodoFromGist(todo.content)\">Done</button>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row alert\">\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n        <span>Error: {{httpError}}</span>\n        <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n    </div>\n</div>\n<div class=\"row home\">\n    <div class=\"col-md-6 bookmark\">\n        <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n            <input type=\"password\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n            <div class=\"input-group-append\">\n                <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Unlock</button>\n            </div>\n        </div>\n        <div class=\"search input-group mb-3\" *ngIf=\"bookmarks\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-add\">\n                    <div class=\"input-group mb-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" aria-label=\"name\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkName\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"URL address\" aria-label=\"url\" aria-describedby=\"basic-addon2\" [(ngModel)]=\"bookmarkUrl\">\n                        <div class=\"input-group-append\">\n                            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"addToGist()\">Add</button>\n                        </div>\n                    </div>\n                </li>\n                <li class=\"list-group-item item-list\"\n                    *ngFor=\"let bookmark of bookmarks; let i = index\">\n                    <a target=\"_blank\"\n                        href=\"{{bookmark.url}}\">{{ bookmark.name }}\n                    </a>\n                    <button *ngIf=\"confirmRowNumber !== i\" type=\"button\" class=\"btn btn-warning delete-btn\" (click)=\"deleteFromGist(bookmark.url, i)\">Delete</button>\n                    <button *ngIf=\"confirmRowNumber === i\" type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteFromGist(bookmark.url, i)\">Confirm</button>\n                    <button *ngIf=\"confirmRowNumber === i\" type=\"button\" class=\"btn btn-secondary delete-btn\" (click)=\"cancelRowDeletion()\">Cancel</button>\n                </li>\n            </ul>\n        </div>\n    \n    </div>\n    <div class=\"col-md-6 todo\">\n        <div class=\"search input-group mb-3\" *ngIf=\"passcode\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Add todos\" (keyup.enter)=\"addTodo($event)\" [(ngModel)]='todoString'>\n        </div>\n        <div class=\"search-result\" *ngIf=\"passcode\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-item\"\n                    *ngFor=\"let todo of todos, let i = index\">\n                    {{ todo.content }}\n                    <button *ngIf=\"confirmTodoRowNumber !== i\" type=\"button\" class=\"btn btn-warning delete-btn\" (click)=\"deleteTodoFromGist(todo.content, i)\">Done</button>\n                    <button *ngIf=\"confirmTodoRowNumber === i\" type=\"button\" class=\"btn btn-danger delete-btn\" (click)=\"deleteTodoFromGist(todo.content, i)\">Confirm</button>\n                    <button *ngIf=\"confirmTodoRowNumber === i\" type=\"button\" class=\"btn btn-secondary delete-btn\" (click)=\"cancelRowDeletion()\">Cancel</button>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -263,7 +267,7 @@ module.exports = "<div class=\"row alert\">\n    <div class=\"alert alert-danger
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".alert {\n  width: -webkit-fill-available; }\n  .alert .reset-btn {\n    float: right; }\n  .home ul {\n  list-style-type: none; }\n  .home .delete-btn {\n  float: right; }\n  .home .alert-danger {\n  height: 64px; }\n"
+module.exports = ".alert {\n  width: -webkit-fill-available; }\n  .alert .reset-btn {\n    float: right; }\n  .home {\n  margin-bottom: 10px; }\n  .home ul {\n    list-style-type: none; }\n  .home .delete-btn {\n    float: right;\n    margin: 0 5px; }\n  .home .alert-danger {\n    height: 64px; }\n  .home .item-list {\n    display: block;\n    align-content: space-between; }\n  @media (max-width: 767px) {\n    .home .todo {\n      margin-top: 20pt; } }\n"
 
 /***/ }),
 
@@ -303,6 +307,8 @@ var HomeComponent = /** @class */ (function () {
         this.cheGist = 'https://api.github.com/gists/973de2c3eb3f55518e97a1d3d18eb79e';
         this.gistFile = 'bookmarks.json';
         this.gistTodo = 'todos.json';
+        this.confirmRowNumber = Number.MAX_SAFE_INTEGER;
+        this.confirmTodoRowNumber = Number.MAX_SAFE_INTEGER;
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
@@ -353,29 +359,40 @@ var HomeComponent = /** @class */ (function () {
             event.target.value = '';
         }
     };
-    HomeComponent.prototype.deleteFromGist = function (url) {
+    HomeComponent.prototype.deleteFromGist = function (url, index) {
         var _this = this;
-        this.httpError = void 0;
-        this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.url !== url; });
-        this.resourceService.patchGist(this.gistFile, this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
-            console.log("PATCH call successful value returned in body", val);
-        }, function (error) {
-            _this.httpError = error.statusText;
-        }, function () {
-            console.log("The PATCH observable is now completed.");
-        });
+        if (this.confirmRowNumber === index) {
+            this.httpError = void 0;
+            this.bookmarks = this.bookmarks.filter(function (bookmark) { return bookmark.url !== url; });
+            this.resourceService.patchGist(this.gistFile, this.cheGist, this.bookmarks, this.passcode).subscribe(function (val) {
+                console.log("PATCH call successful value returned in body", val);
+            }, function (error) {
+                _this.httpError = error.statusText;
+            }, function () {
+                console.log("The PATCH observable is now completed.");
+            });
+            this.confirmRowNumber = Number.MAX_SAFE_INTEGER;
+        }
+        this.confirmRowNumber = index;
     };
-    HomeComponent.prototype.deleteTodoFromGist = function (content) {
+    HomeComponent.prototype.cancelRowDeletion = function () {
+        this.confirmRowNumber = Number.MAX_SAFE_INTEGER;
+    };
+    HomeComponent.prototype.deleteTodoFromGist = function (content, index) {
         var _this = this;
-        this.httpError = void 0;
-        this.todos = this.todos.filter(function (todo) { return todo.content !== content; });
-        this.resourceService.patchGist(this.gistTodo, this.cheGist, this.todos, this.passcode).subscribe(function (val) {
-            console.log("PATCH call successful value returned in body", val);
-        }, function (error) {
-            _this.httpError = error.statusText;
-        }, function () {
-            console.log("The PATCH observable is now completed.");
-        });
+        if (this.confirmTodoRowNumber === index) {
+            this.httpError = void 0;
+            this.todos = this.todos.filter(function (todo) { return todo.content !== content; });
+            this.resourceService.patchGist(this.gistTodo, this.cheGist, this.todos, this.passcode).subscribe(function (val) {
+                console.log("PATCH call successful value returned in body", val);
+            }, function (error) {
+                _this.httpError = error.statusText;
+            }, function () {
+                console.log("The PATCH observable is now completed.");
+            });
+            this.confirmTodoRowNumber = Number.MAX_SAFE_INTEGER;
+        }
+        this.confirmTodoRowNumber = index;
     };
     HomeComponent.prototype.setKeypass = function (keypass) {
         this.passcode = keypass;
@@ -493,7 +510,7 @@ var JsonfetchComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-content\">\n  <div class=\"media-player\">\n    <div class=\"input-group mb-3\">\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"video\" placeholder=\"media url\" aria-label=\"Media's URL\" aria-describedby=\"basic-addon2\">\n      <div class=\"input-group-append\">\n        <a class=\"input-group-text\" id=\"basic-addon2\" (click)=\"getMedia()\">Get It</a>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"video\">\n      <div class=\"col text-center\">\n        <video id=\"my-video\" class=\"video-js vjs-big-play-centered mini-play\"\n                width=\"640\" height=\"360\" [poster]=\"poster\" style=\"margin: auto;\">\n          <source [src]=\"video\" type=\"video/mp4\">\n        </video>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"app-content\">\n  <div class=\"media-player\">\n    <div class=\"input-group mb-3\">\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"video\" placeholder=\"media url\" aria-label=\"Media's URL\" aria-describedby=\"basic-addon2\">\n      <div class=\"input-group-append\">\n        <a class=\"input-group-text\" id=\"basic-addon2\" (click)=\"getMedia()\">Get It</a>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"video\">\n      <div class=\"col text-center\">\n        <video id=\"my-video\" class=\"video-js vjs-big-play-centered mini-play\"\n                [poster]=\"poster\" style=\"margin: auto;\">\n          <source [src]=\"video\" type=\"video/mp4\">\n        </video>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -504,7 +521,7 @@ module.exports = "<div class=\"app-content\">\n  <div class=\"media-player\">\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".media-player {\n  width: 640px;\n  align-content: space-around;\n  text-align: center;\n  margin-left: auto;\n  margin-right: auto; }\n  .media-player .row {\n    padding-top: 10px; }\n"
+module.exports = ".media-player {\n  align-content: space-around;\n  text-align: center;\n  margin-left: auto;\n  margin-right: auto; }\n  .media-player .row {\n    padding-top: 10px; }\n"
 
 /***/ }),
 
@@ -567,6 +584,156 @@ var MediaplayerComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], MediaplayerComponent);
     return MediaplayerComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/notes/notes.component.html":
+/*!*******************************************************!*\
+  !*** ./src/app/components/notes/notes.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row alert\">\n    <div class=\"alert alert-danger\" role=\"alert\" *ngIf=\"httpError\">\n        <span>Error: {{httpError}}</span>\n        <button class=\"btn btn-secondary reset-btn\" type=\"button\" (click)=\"clearPasscode()\">Retry</button>\n    </div>\n    <div class=\"keypass input-group mb-3\" *ngIf=\"!passcode\">\n        <input type=\"password\" class=\"form-control\" placeholder=\"Keypass\" aria-describedby=\"basic-addon2\" #keypass>\n        <div class=\"input-group-append\">\n            <button class=\"btn btn-secondary\" type=\"button\" (click)=\"setKeypass(keypass.value)\">Unlock</button>\n        </div>\n    </div>\n</div>\n<div class=\"row notes\" *ngIf=\"passcode\">\n    <div class=\"col-md-6 edit\">\n        <form>\n            <div class=\"form-group\">\n              <label for=\"editNoteArea\">Edit note</label>\n              <textarea class=\"form-control\" id=\"editNoteArea\" rows=\"10\" [(ngModel)]=\"editingNoteContent\" name=\"edit-note-form\"></textarea>\n            </div>\n            <div class=\"form-group button-group\">\n                <button *ngIf=\"!editingNoteNumber\" type=\"button\" class=\"btn btn-warning\" (click)=\"addNote()\">Add New</button>\n                <button *ngIf=\"editingNoteNumber\" [attr.disabled]=\"editingNoteContent ? null : true\" (click)=\"updateNote()\" type=\"button\" class=\"btn btn-danger\">Update</button>\n                <button [attr.disabled]=\"editingNoteContent ? null : true\" (click)=\"cancelUpdateNote()\" type=\"button\" class=\"btn btn-secondary\">Cancel</button>\n            </div>\n        </form>\n    </div>  \n    <div class=\"col-md-6 notelist\">\n        <div class=\"search input-group mb-3\" *ngIf=\"notes\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" (keyup.enter)=\"search($event)\" [(ngModel)]='searchString'>\n        </div>\n        <div class=\"search-result\">\n            <ul class=\"list-group\">\n                <li class=\"list-group-item item-list\"\n                    *ngFor=\"let note of notes; let i = index\"\n                    (click) = \"editNote(note.id)\">\n                    {{getTitle(note.content)}}\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/notes/notes.component.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/components/notes/notes.component.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".notes .button-group {\n  width: 100%;\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-around; }\n  .notes .button-group button {\n    font-weight: bold;\n    font-size: 1em;\n    text-align: center;\n    display: block; }\n"
+
+/***/ }),
+
+/***/ "./src/app/components/notes/notes.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/components/notes/notes.component.ts ***!
+  \*****************************************************/
+/*! exports provided: NotesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotesComponent", function() { return NotesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_config_resource_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/config/resource.service */ "./src/app/config/resource.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NotesComponent = /** @class */ (function () {
+    function NotesComponent(resourceService) {
+        this.resourceService = resourceService;
+        this.editingNoteContent = '';
+        this.editingNoteNumber = void 0;
+        this.cheGist = 'https://api.github.com/gists/973de2c3eb3f55518e97a1d3d18eb79e';
+        this.gistFile = 'notes.json';
+        this.passcode = void 0;
+        this.httpError = '';
+    }
+    NotesComponent.prototype.ngOnInit = function () { };
+    NotesComponent.prototype.generateId = function () {
+        return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    };
+    NotesComponent.prototype.getTitle = function (content) {
+        return content.slice(0, 35);
+    };
+    NotesComponent.prototype.editNote = function (id) {
+        var note = this.notes.filter(function (note) { return note.id === id; });
+        this.editingNoteNumber = id;
+        this.editingNoteContent = note[0].content;
+    };
+    NotesComponent.prototype.cancelUpdateNote = function () {
+        this.editingNoteContent = '';
+        this.editingNoteNumber = void 0;
+    };
+    NotesComponent.prototype.loadNotes = function () {
+        var _this = this;
+        this.httpError = void 0;
+        this.resourceService.getGist(this.cheGist, this.passcode).subscribe(function (result) {
+            _this.notes = JSON.parse(result[_this.gistFile]['content']).data;
+            _this.original = _this.deepClone(_this.notes);
+        }, function (error) {
+            _this.httpError = error.statusText;
+        });
+    };
+    NotesComponent.prototype.addNote = function () {
+        var _this = this;
+        this.httpError = void 0;
+        var newEntry = {
+            id: this.generateId(),
+            content: this.editingNoteContent
+        };
+        this.notes.push(newEntry);
+        this.resourceService.patchGist(this.gistFile, this.cheGist, this.notes, this.passcode).subscribe(function (val) {
+            console.log("PATCH call successful value returned in body", val);
+        }, function (error) {
+            _this.httpError = error.statusText;
+        }, function () {
+            console.log("The PATCH observable is now completed.");
+        });
+        this.editingNoteContent = '';
+    };
+    NotesComponent.prototype.updateNote = function () {
+        var _this = this;
+        this.httpError = void 0;
+        if (this.editingNoteNumber) {
+            this.notes.map(function (note) {
+                return note.id === _this.editingNoteNumber ? note.content = _this.editingNoteContent : note;
+            });
+            this.resourceService.patchGist(this.gistFile, this.cheGist, this.notes, this.passcode).subscribe(function (val) {
+                console.log("PATCH call successful value returned in body", val);
+            }, function (error) {
+                _this.httpError = error.statusText;
+            }, function () {
+                console.log("The PATCH observable is now completed.");
+            });
+        }
+    };
+    NotesComponent.prototype.deepClone = function (obj) {
+        return JSON.parse(JSON.stringify(obj));
+    };
+    NotesComponent.prototype.setKeypass = function (keypass) {
+        this.passcode = keypass;
+        this.loadNotes();
+    };
+    NotesComponent.prototype.clearPasscode = function () {
+        this.passcode = void 0;
+        this.httpError = void 0;
+    };
+    NotesComponent.prototype.search = function (event) {
+        // event.target.value
+        if (event.target.value) {
+            this.notes = this.notes.filter(function (note) { return note.content.toLowerCase().includes(event.target.value.toLowerCase()); });
+            event.target.value = '';
+        }
+        else {
+            this.notes = this.deepClone(this.original);
+        }
+    };
+    NotesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-notes',
+            template: __webpack_require__(/*! ./notes.component.html */ "./src/app/components/notes/notes.component.html"),
+            styles: [__webpack_require__(/*! ./notes.component.scss */ "./src/app/components/notes/notes.component.scss")]
+        }),
+        __metadata("design:paramtypes", [src_app_config_resource_service__WEBPACK_IMPORTED_MODULE_1__["ResourceService"]])
+    ], NotesComponent);
+    return NotesComponent;
 }());
 
 
