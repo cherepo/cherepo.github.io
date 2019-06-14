@@ -72888,6 +72888,264 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.10'
 
 /***/ }),
 
+/***/ "./node_modules/ngx-simplemde/esm5/simplemde.js":
+/*!******************************************************!*\
+  !*** ./node_modules/ngx-simplemde/esm5/simplemde.js ***!
+  \******************************************************/
+/*! exports provided: SimplemdeComponent, SimplemdeConfig, SimplemdeModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimplemdeComponent", function() { return SimplemdeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimplemdeConfig", function() { return SimplemdeConfig; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimplemdeModule", function() { return SimplemdeModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var SimplemdeConfig = /** @class */ (function () {
+    function SimplemdeConfig() {
+    }
+    return SimplemdeConfig;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var SimplemdeComponent = /** @class */ (function () {
+    function SimplemdeComponent(cog, cd, zone) {
+        this.cog = cog;
+        this.cd = cd;
+        this.zone = zone;
+    }
+    /**
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.init = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        if (typeof SimpleMDE === 'undefined') {
+            throw new Error("Could not find SimpleMDE object.");
+        }
+        this.destroy();
+        var /** @type {?} */ config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.cog, this.options);
+        config.element = this.con.nativeElement;
+        this.zone.runOutsideAngular(function () {
+            _this.instance = new SimpleMDE(config);
+            if (_this.value) {
+                _this.instance.value(_this.value);
+            }
+            _this.instance.codemirror.on('change', function () {
+                _this.value = _this.instance.value();
+                _this.zone.run(function () { return _this.onChange(_this.value); });
+            });
+        });
+    };
+    /**
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.destroy = /**
+     * @return {?}
+     */
+    function () {
+        if (this.instance) {
+            this.instance.toTextArea();
+            this.instance = null;
+        }
+    };
+    /**
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.ngAfterViewInit = /**
+     * @return {?}
+     */
+    function () {
+        this.init();
+    };
+    /**
+     * @param {?} changes
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.ngOnChanges = /**
+     * @param {?} changes
+     * @return {?}
+     */
+    function (changes) {
+        if (!changes.options.firstChange)
+            this.init();
+    };
+    Object.defineProperty(SimplemdeComponent.prototype, "Instance", {
+        /**
+         * 获取UE实例
+         *
+         * @readonly
+         */
+        get: /**
+         * 获取UE实例
+         *
+         * \@readonly
+         * @return {?}
+         */
+        function () {
+            return this.instance;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
+        this.destroy();
+    };
+    // reuse-tab: http://ng-alain.com/components/reuse-tab#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F
+    /**
+     * @return {?}
+     */
+    SimplemdeComponent.prototype._onReuseInit = /**
+     * @return {?}
+     */
+    function () {
+        this.init();
+    };
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.writeValue = /**
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) {
+        this.value = value;
+        if (this.instance) {
+            this.instance.value(this.value);
+        }
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.registerOnChange = /**
+     * @param {?} fn
+     * @return {?}
+     */
+    function (fn) {
+        this.onChange = fn;
+    };
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.registerOnTouched = /**
+     * @param {?} fn
+     * @return {?}
+     */
+    function (fn) {
+        this.onTouched = fn;
+    };
+    /**
+     * @param {?} isDisabled
+     * @return {?}
+     */
+    SimplemdeComponent.prototype.setDisabledState = /**
+     * @param {?} isDisabled
+     * @return {?}
+     */
+    function (isDisabled) { };
+    SimplemdeComponent.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{
+                    selector: 'simplemde',
+                    template: "<textarea #con></textarea>",
+                    providers: [
+                        {
+                            provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NG_VALUE_ACCESSOR"],
+                            useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function () { return SimplemdeComponent; }),
+                            multi: true,
+                        },
+                    ],
+                    changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+                },] },
+    ];
+    /** @nocollapse */
+    SimplemdeComponent.ctorParameters = function () { return [
+        { type: SimplemdeConfig, },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], },
+    ]; };
+    SimplemdeComponent.propDecorators = {
+        "con": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['con',] },],
+        "options": [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] },],
+    };
+    return SimplemdeComponent;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+var SimplemdeModule = /** @class */ (function () {
+    function SimplemdeModule() {
+    }
+    /**
+     * @param {?=} config
+     * @return {?}
+     */
+    SimplemdeModule.forRoot = /**
+     * @param {?=} config
+     * @return {?}
+     */
+    function (config) {
+        return {
+            ngModule: SimplemdeModule,
+            providers: [{ provide: SimplemdeConfig, useValue: config }],
+        };
+    };
+    SimplemdeModule.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
+                    imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"]],
+                    declarations: [SimplemdeComponent],
+                    exports: [SimplemdeComponent],
+                },] },
+    ];
+    return SimplemdeModule;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=simplemde.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/rxjs/_esm5/index.js":
 /*!******************************************!*\
   !*** ./node_modules/rxjs/_esm5/index.js ***!
@@ -85247,7 +85505,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./node_modules/tslib/tslib.es6.js ***!
   \*****************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -85264,6 +85522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
@@ -85316,8 +85575,10 @@ function __rest(s, e) {
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
         t[p] = s[p];
     if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
     return t;
 }
 
@@ -85410,6 +85671,14 @@ function __spread() {
         ar = ar.concat(__read(arguments[i]));
     return ar;
 }
+
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 
 function __await(v) {
     return this instanceof __await ? (this.v = v, this) : new __await(v);
