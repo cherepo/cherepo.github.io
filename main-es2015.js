@@ -985,22 +985,22 @@ let ResourceService = class ResourceService {
       DELETE - https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
     */
     awsGetNotes(passcode) {
-        const awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes';
+        const awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note';
         return this.httpClient.get(awsurl, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((resp) => resp));
     }
     awsUpdateNotes(id, body, passcode) {
-        const awsurl = `https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/${id}`;
+        const awsurl = `https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note/${id}`;
         return this.httpClient.put(awsurl, body, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((resp) => resp));
     }
     awsAddNote(body, passcode) {
-        const awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes';
+        const awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note';
         return this.httpClient.post(awsurl, body, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((resp) => resp));
     }
     awsDeleteNote(id, passcode) {
-        const awsurl = `https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/${id}`;
+        const awsurl = `https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note/${id}`;
         return this.httpClient.delete(awsurl, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((resp) => resp));
     }
@@ -1016,9 +1016,6 @@ let ResourceService = class ResourceService {
     getAWSHeaders(passcode) {
         return {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'X-Requested-With': 'XMLHttpRequest',
                 'app-token': this.decryptToken(passcode)
             })
         };

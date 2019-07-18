@@ -1007,22 +1007,22 @@ var ResourceService = /** @class */ (function () {
       DELETE - https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/{id}
     */
     ResourceService.prototype.awsGetNotes = function (passcode) {
-        var awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes';
+        var awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note';
         return this.httpClient.get(awsurl, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) { return resp; }));
     };
     ResourceService.prototype.awsUpdateNotes = function (id, body, passcode) {
-        var awsurl = "https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/" + id;
+        var awsurl = "https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note/" + id;
         return this.httpClient.put(awsurl, body, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) { return resp; }));
     };
     ResourceService.prototype.awsAddNote = function (body, passcode) {
-        var awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes';
+        var awsurl = 'https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note';
         return this.httpClient.post(awsurl, body, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) { return resp; }));
     };
     ResourceService.prototype.awsDeleteNote = function (id, passcode) {
-        var awsurl = "https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/notes/" + id;
+        var awsurl = "https://vshb53js6h.execute-api.us-east-1.amazonaws.com/dev/note/" + id;
         return this.httpClient.delete(awsurl, this.getAWSHeaders(passcode))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) { return resp; }));
     };
@@ -1038,9 +1038,6 @@ var ResourceService = /** @class */ (function () {
     ResourceService.prototype.getAWSHeaders = function (passcode) {
         return {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'X-Requested-With': 'XMLHttpRequest',
                 'app-token': this.decryptToken(passcode)
             })
         };
