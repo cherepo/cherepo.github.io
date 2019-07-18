@@ -653,7 +653,7 @@ var MemoComponent = /** @class */ (function () {
         return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     };
     MemoComponent.prototype.getTitle = function (content) {
-        return content.slice(0, 35);
+        return content.split("\n")[0];
     };
     MemoComponent.prototype.editNote = function (id, index) {
         console.log('id', id);
@@ -822,7 +822,7 @@ var NotesComponent = /** @class */ (function () {
         return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     };
     NotesComponent.prototype.getTitle = function (content) {
-        return content.slice(0, 35);
+        return content.split("\n")[0];
     };
     NotesComponent.prototype.editNote = function (id, index) {
         var note = this.notes.filter(function (note) { return note.id === id; });

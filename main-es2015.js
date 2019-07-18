@@ -639,7 +639,7 @@ let MemoComponent = class MemoComponent {
         return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     }
     getTitle(content) {
-        return content.slice(0, 35);
+        return content.split("\n")[0];
     }
     editNote(id, index) {
         console.log('id', id);
@@ -807,7 +807,7 @@ let NotesComponent = class NotesComponent {
         return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
     }
     getTitle(content) {
-        return content.slice(0, 35);
+        return content.split("\n")[0];
     }
     editNote(id, index) {
         const note = this.notes.filter(note => note.id === id);
