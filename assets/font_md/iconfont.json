@@ -1,0 +1,142 @@
+{
+  "id": "700857",
+  "name": "simplemde-antd",
+  "font_family": "simplemde-icon",
+  "css_prefix_text": "smdi-",
+  "description": "https://github.com/cipchk/simplemde-markdown-editor",
+  "glyphs": [
+    {
+      "icon_id": "4765837",
+      "name": "undo",
+      "font_class": "undo",
+      "unicode": "e787",
+      "unicode_decimal": 59271
+    },
+    {
+      "icon_id": "4765838",
+      "name": "redo",
+      "font_class": "redo",
+      "unicode": "e788",
+      "unicode_decimal": 59272
+    },
+    {
+      "icon_id": "4767098",
+      "name": "line",
+      "font_class": "line",
+      "unicode": "e7ff",
+      "unicode_decimal": 59391
+    },
+    {
+      "icon_id": "1085942",
+      "name": "eraser",
+      "font_class": "eraser",
+      "unicode": "e89c",
+      "unicode_decimal": 59548
+    },
+    {
+      "icon_id": "1550133",
+      "name": "引用",
+      "font_class": "quote-left",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "4765896",
+      "name": "eye",
+      "font_class": "eye",
+      "unicode": "e78f",
+      "unicode_decimal": 59279
+    },
+    {
+      "icon_id": "4766917",
+      "name": "image",
+      "font_class": "image",
+      "unicode": "e7de",
+      "unicode_decimal": 59358
+    },
+    {
+      "icon_id": "4766919",
+      "name": "table",
+      "font_class": "table",
+      "unicode": "e7df",
+      "unicode_decimal": 59359
+    },
+    {
+      "icon_id": "4766965",
+      "name": "link",
+      "font_class": "link",
+      "unicode": "e7e2",
+      "unicode_decimal": 59362
+    },
+    {
+      "icon_id": "4767015",
+      "name": "fullscreen",
+      "font_class": "fullscreen",
+      "unicode": "e7ec",
+      "unicode_decimal": 59372
+    },
+    {
+      "icon_id": "4767060",
+      "name": "unordered list",
+      "font_class": "list-ul",
+      "unicode": "e7f4",
+      "unicode_decimal": 59380
+    },
+    {
+      "icon_id": "4767061",
+      "name": "ordered list",
+      "font_class": "list-ol",
+      "unicode": "e7f5",
+      "unicode_decimal": 59381
+    },
+    {
+      "icon_id": "4767078",
+      "name": "bold",
+      "font_class": "bold",
+      "unicode": "e7f7",
+      "unicode_decimal": 59383
+    },
+    {
+      "icon_id": "4767084",
+      "name": "strikethrough",
+      "font_class": "strikethrough",
+      "unicode": "e7f9",
+      "unicode_decimal": 59385
+    },
+    {
+      "icon_id": "4767086",
+      "name": "number",
+      "font_class": "header",
+      "unicode": "e7f8",
+      "unicode_decimal": 59384
+    },
+    {
+      "icon_id": "4767087",
+      "name": "italic",
+      "font_class": "italic",
+      "unicode": "e7fb",
+      "unicode_decimal": 59387
+    },
+    {
+      "icon_id": "4767091",
+      "name": "code",
+      "font_class": "code",
+      "unicode": "e7fc",
+      "unicode_decimal": 59388
+    },
+    {
+      "icon_id": "4767092",
+      "name": "column-width",
+      "font_class": "columns",
+      "unicode": "e7fd",
+      "unicode_decimal": 59389
+    },
+    {
+      "icon_id": "4767100",
+      "name": "question",
+      "font_class": "question",
+      "unicode": "e7fe",
+      "unicode_decimal": 59390
+    }
+  ]
+}
